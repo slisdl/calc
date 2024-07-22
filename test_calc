@@ -1,0 +1,60 @@
+import unittest
+from calc import Calc
+
+class TestCalc(unittest.TestCase):
+
+    def setUp(self):
+        self.calc = Calc()
+
+    def test_of_test(self):
+        self.assertTrue(True)
+
+    def test_add(self):
+        result = self.calc.add(2, 2)
+        self.assertEqual(result, 4)
+
+    def test_sub(self):
+        result = self.calc.sub(10, 5)
+        self.assertEqual(result, 5)
+
+    def test_subnegative(self):
+        result = self.calc.sub(5, 10)
+        self.assertEqual(result, -5)
+
+    def test_mult(self):
+        result = self.calc.mult(3, 4)
+        self.assertEqual(result, 12)
+
+    def test_exp(self):
+        result = self.calc.exp(2, 3)
+        self.assertEqual(result, 8)
+
+    def test_div(self):
+        result = self.calc.division(10, 2)
+        self.assertEqual(result, 5)
+
+    def test_div_by_zero(self):
+        with self.assertRaises(ValueError):
+            self.calc.division(10, 0)
+
+    def test_int_div(self):
+        result = self.calc.int_div(10, 3)
+        self.assertEqual(result, 3)
+
+    def test_int_div_by_zero(self):
+        with self.assertRaises(ValueError):
+            self.calc.int_div(10, 0)
+
+    def test_mod(self):
+        result = self.calc.mod(10, 3)
+        self.assertEqual(result, 1)
+
+    def test_mod_by_zero(self):
+        with self.assertRaises(ValueError):
+            self.calc.mod(10, 0)
+
+    def tearDown(self):
+        pass
+
+if __name__ == '__main__':
+    unittest.main()
